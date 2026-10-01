@@ -10,7 +10,10 @@ def pred_image(image):
 
 
 app= gr.Interface(fn = pred_image, inputs = 'image', outputs = "image" )
-app.launch()
+app.launch(
+    server_name="0.0.0.0",
+    server_port=int(_import_("os").environ.get("PORT", 10000))
+)
 
 # download libraries ---> pip install -r requirements.txt
 # break the terminal   ---- ctrl +c
